@@ -1,7 +1,7 @@
 body {
 	background: #bb3d3d;
 	background-image: url('../images/title.png');
-	color: #ffd800;
+	color: #f7f5f5;
 	font-family:Arial;
 	font-size:14px;
 }
@@ -17,6 +17,27 @@ a:hover {
 a:focus {
 	color: #ff0000;
 }
+
 a:visited {
-	color: #00ff21;
+	color: #ffd800;
+}
+
+
+img {
+	max-height: 550px;
+	margin: auto;
+}
+
+.summary {
+	text-align: center;
+}
+
+ol {
+	display: inline-block;
+	text-align: left;
+}
+
+ul {
+	display: inline-block;
+	text-align: left;
 }
