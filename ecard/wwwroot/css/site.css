@@ -1,43 +1,94 @@
 body {
-	background: #bb3d3d;
-	background-image: url('../images/title.png');
-	color: #f7f5f5;
-	font-family:Arial;
-	font-size:14px;
-}
-
-a {
-	color: #fff;
-}
-
-a:hover {
-	color: #ff6a00;
-}
-
-a:focus {
-	color: #ff0000;
-}
-
-a:visited {
-	color: #ffd800;
-}
-
-
-img {
-	max-height: 550px;
-	margin: auto;
-}
-
-.summary {
+	background: #ded9d9;
+	/*background-image: url('../images/title.png');*/
+	color: #000;
+	font-family: Arial;
+	font-size: 14px;
 	text-align: center;
 }
 
-ol {
-	display: inline-block;
-	text-align: left;
+a {
 }
 
-ul {
-	display: inline-block;
-	text-align: left;
+	a:hover {
+		color: #ff6a00;
+	}
+
+	a:focus {
+		color: #ff0000;
+	}
+
+	a:visited {
+		color: #ffd800;
+	}
+
+
+img {
+	max-height: 68px;
+	margin: auto;
+}
+
+#myCarousel img {
+	max-height: 200px;
+	margin: auto;
+	text-align: center;
+}
+
+
+/*.photo {
+	width: 700px; 
+	border: 10px dotted black;
+	background: pink;
+	text-align:center;
+	float:right;
+	padding: 3rem;
+}*/
+
+
+.row {
+	/*border: 1px solid red;*/
+	padding: 1rem 0;
+	margin: 1rem 0;
+}
+
+/*.col-sm-8 {
+	background: pink;
+}*/
+
+
+.rownav {
+	margin: 3rem 0;
+	border: 1px solid blue;
+}
+
+
+.anniversary {
+	background: #f7f6a5;
+}
+
+.baby {
+	background: #eeb4b4;
+}
+
+.birthday {
+	background: #cff7b0;
+}
+
+.valentines {
+	background: #f17daf;
+}
+
+.blackframe {
+	background-image: url('../images/greytile.png');
+	background-size: cover;
+}
+
+.goldframe {
+	background-image: url('../images/greentile.jpg');
+	background-size: cover;
+}
+
+.woodframe {
+	background-image: url('../images/fabrictile.jpg');
+	background-size: cover;
 }
