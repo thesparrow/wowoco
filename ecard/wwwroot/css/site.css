@@ -1,10 +1,10 @@
 body {
 	background: #ded9d9;
-	/*background-image: url('../images/title.png');*/
+	background-image: url('../images/title.png');
 	color: #000;
 	font-family: Arial;
 	font-size: 14px;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 a {
@@ -35,30 +35,31 @@ img {
 }
 
 
-/*.photo {
-	width: 700px; 
+.photo {
+	width: 700px;
 	border: 10px dotted black;
 	background: pink;
-	text-align:center;
-	float:right;
+	text-align: center;
+	float: right;
 	padding: 3rem;
-}*/
-
-
-.row {
-	/*border: 1px solid red;*/
-	padding: 1rem 0;
-	margin: 1rem 0;
 }
 
-/*.col-sm-8 {
-	background: pink;
+
+/*.row {
+	border: 1px solid red;
+	padding: 1rem 0;
+	margin: 1rem 0;
 }*/
 
+.col-sm-8 {
+	background: pink;
+}
 
-.rownav {
+
+.challenge {
 	margin: 3rem 0;
 	border: 1px solid blue;
+	padding: 0;
 }
 
 
