@@ -24,37 +24,21 @@ a {
 
 
 img {
-	max-height: 68px;
+	max-height: 125px;
 	margin: auto;
 }
 
 #myCarousel img {
-	max-height: 200px;
+	max-height: 500px;
 	margin: auto;
 	text-align: center;
 }
 
-
-.photo {
-	width: 700px;
-	border: 10px dotted black;
-	background: pink;
-	text-align: center;
-	float: right;
-	padding: 3rem;
-}
-
-
-/*.row {
-	border: 1px solid red;
+.ecard .row {
+	/*border: 1px solid red;*/
 	padding: 1rem 0;
 	margin: 1rem 0;
-}*/
-
-.col-sm-8 {
-	background: pink;
 }
-
 
 .challenge {
 	margin: 3rem 0;
@@ -62,6 +46,9 @@ img {
 	padding: 0;
 }
 
+	.challenge .col-sm-8 {
+		background: pink;
+	}
 
 .anniversary {
 	background: #f7f6a5;
