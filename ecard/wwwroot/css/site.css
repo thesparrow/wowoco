@@ -1,10 +1,22 @@
 body {
 	background: #ded9d9;
-	background-image: url('../images/title.png');
+	/*background-image: url('../images/title.png');*/
 	color: #000;
 	font-family: Arial;
 	font-size: 14px;
 	/*text-align: center;*/
+}
+
+p {
+	margin-top: 3em;
+}
+
+.questionnaire h1 {
+	text-align: center;
+	color: #152585;
+	font-size: 6em;
+	font-family: 'Oleo Script', cursive;
+	margin: .25em;
 }
 
 a {
