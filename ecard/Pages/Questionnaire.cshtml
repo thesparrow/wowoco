@@ -4,10 +4,10 @@
 	ViewBag.meta_title = "Questionnaire";
 	ViewBag.meta_keywords = "";
 	ViewBag.meta_desc = "";
-	ViewBag.theme = "birthday";
+	ViewBag.theme = "questionnaire";
 }
 
-<div class="container questionnaire">
+<div class="container questionnaire2">
 
 	<h1>
 		<i class="fa fa-music"></i>
@@ -16,48 +16,51 @@
 	</h1>
 
 	<form method="post">
-		<div class="form-group">
-			<label asp-for="@Model._myGreetings.sendername"></label>
-			<input asp-for="@Model._myGreetings.sendername" type="text" class="form-control" />
-			<span asp-validation-for="@Model._myGreetings.sendername" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="@Model._myGreetings.senderemail"></label>
-			<input asp-for="@Model._myGreetings.senderemail" type="email" class="form-control" />
-			<span asp-validation-for="@Model._myGreetings.senderemail" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="@Model._myGreetings.movie"></label>
-			<input asp-for="@Model._myGreetings.movie" type="text" class="form-control" />
-			<span asp-validation-for="@Model._myGreetings.movie" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="@Model._myGreetings.restaurant"></label>
-			<input asp-for="@Model._myGreetings.restaurant" type="text" class="form-control" />
-			<span asp-validation-for="@Model._myGreetings.restaurant" class="text-danger"></span>
-		</div>
+		<div class="row">
+			<div class="form-group col-6">
+				<label asp-for="@Model._myGreetings.sendername"></label>
+				<input asp-for="@Model._myGreetings.sendername" type="text" class="form-control" />
+				<span asp-validation-for="@Model._myGreetings.sendername" class="text-danger"></span>
+			</div>
+			<div class="form-group col-6	">
+				<label asp-for="@Model._myGreetings.senderemail"></label>
+				<input asp-for="@Model._myGreetings.senderemail" type="email" class="form-control" />
+				<span asp-validation-for="@Model._myGreetings.senderemail" class="text-danger"></span>
+			</div>
+			<div class="form-group col-6">
+				<label asp-for="@Model._myGreetings.movie"></label>
+				<input asp-for="@Model._myGreetings.movie" type="text" class="form-control" />
+				<span asp-validation-for="@Model._myGreetings.movie" class="text-danger"></span>
+			</div>
+			<div class="form-group col-6">
+				<label asp-for="@Model._myGreetings.restaurant"></label>
+				<input asp-for="@Model._myGreetings.restaurant" type="text" class="form-control" />
+				<span asp-validation-for="@Model._myGreetings.restaurant" class="text-danger"></span>
+			</div>
 
-		<div class="form-group">
-			<label asp-for="@Model._myGreetings.holiday"></label>
-			<input asp-for="@Model._myGreetings.holiday" type="text" class="form-control" />
-			<span asp-validation-for="@Model._myGreetings.holiday" class="text-danger"></span>
+			<div class="form-group col-6">
+				<label asp-for="@Model._myGreetings.holiday"></label>
+				<input asp-for="@Model._myGreetings.holiday" type="text" class="form-control" />
+				<span asp-validation-for="@Model._myGreetings.holiday" class="text-danger"></span>
+			</div>
+			<div class="form-group col-6">
+				<label asp-for="@Model._myGreetings.color"></label>
+				<input asp-for="@Model._myGreetings.color" type="text" class="form-control" />
+				<span asp-validation-for="@Model._myGreetings.color" class="text-danger"></span>
+			</div>
+			<div class="form-group col-6">
+				<label asp-for="@Model._myGreetings.birthday"></label>
+				<input asp-for="@Model._myGreetings.birthday" type="text" class="form-control" />
+				<span asp-validation-for="@Model._myGreetings.birthday" class="text-danger"></span>
+			</div>
 		</div>
-		<div class="form-group">
-			<label asp-for="@Model._myGreetings.color"></label>
-			<input asp-for="@Model._myGreetings.color" type="text" class="form-control" />
-			<span asp-validation-for="@Model._myGreetings.color" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="@Model._myGreetings.birthday"></label>
-			<input asp-for="@Model._myGreetings.birthday" type="text" class="form-control" />
-			<span asp-validation-for="@Model._myGreetings.birthday" class="text-danger"></span>
-		</div>
-
-		<div class="form-group">
-			<div class="g-recaptcha" data-sitekey="6LeM_i0UAAAAACyV8wOooe4mV3_XHbcl-hMjtnrM"></div>
-		</div>
-		<div class="form-group">
-			<input type="submit" value="Submit" class="btn btn-primary" />
+		<div class="row">
+			<div class="form-group col-10">
+				<div class="g-recaptcha float-right" data-sitekey="6LeM_i0UAAAAACyV8wOooe4mV3_XHbcl-hMjtnrM"></div>
+			</div>
+			<div class="form-group col-1">
+				<input type="submit" value="Submit" class="btn btn-primary float-right" />
+			</div>
 		</div>
 	</form>
 
@@ -105,83 +108,93 @@
 				<input type="checkbox" class="form-check-input" value="">Brew Port Tap House
 			</label>
 		</div>
-		<p class="form-group">
-			<label for="sel1">What is your favorite holiday?</label>
-			<select class="form-control" id="sel1">
-				<option class="invisible">Select One</option>
-				<option>New Year's Eve</option>
-				<option>Valentine's Day</option>
-				<option>St. Patrick's Day</option>
-				<option>Easter</option>
-				<option>Independence Day</option>
-				<option>Halloween</option>
-				<option>Thanksgiving</option>
-				<option>Christmas</option>
-			</select>
-		</p>
+		<div class="form-check form-check-inline">
+			<label class="form-check-label">
+				<input type="checkbox" class="form-check-input" value="">El Gringo
+			</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<label class="form-check-label">
+				<input type="checkbox" class="form-check-input" value="">Beach Mex
+			</label>
+		</div>
+		<div class="row">
+			<p class="form-group col-6">
+				<label for="sel1">What is your favorite holiday?</label>
+				<select class="form-control" id="sel1">
+					<option class="invisible">Select One</option>
+					<option>New Year's Eve</option>
+					<option>Valentine's Day</option>
+					<option>St. Patrick's Day</option>
+					<option>Easter</option>
+					<option>Independence Day</option>
+					<option>Halloween</option>
+					<option>Thanksgiving</option>
+					<option>Christmas</option>
+				</select>
+			</p>
+		</div>
+		<div class="row">
+			<p class="form-group col-6">
+				<label>When is your birthday?</label>
+				<select id="month" name="month">
+					<option class="invisible"></option>
+					<option>January</option>
+					<option>February</option>
+					<option>March</option>
+					<option>April</option>
+					<option>May</option>
+					<option>June</option>
+					<option>July</option>
+					<option>August</option>
+					<option>September</option>
+					<option>October</option>
+					<option>November</option>
+					<option>December</option>
+				</select>
+				<label for="day">Day:</label>
+				<select id="day" name="day">
+					<option class="invisible"></option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+					<option>21</option>
+					<option>22</option>
+					<option>23</option>
+					<option>24</option>
+					<option>25</option>
+					<option>26</option>
+					<option>27</option>
+					<option>28</option>
+					<option>29</option>
+					<option>30</option>
+					<option>31</option>
+				</select>
+			</p>
 
-		<p class="form-group">
-			<label>When is your birthday?</label>
-			<select id="month" name="month">
-				<option class="invisible"></option>
-				<option>January</option>
-				<option>February</option>
-				<option>March</option>
-				<option>April</option>
-				<option>May</option>
-				<option>June</option>
-				<option>July</option>
-				<option>August</option>
-				<option>September</option>
-				<option>October</option>
-				<option>November</option>
-				<option>December</option>
-			</select>
-			<label for="day">Day:</label>
-			<select id="day" name="day">
-				<option class="invisible"></option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-				<option>6</option>
-				<option>7</option>
-				<option>8</option>
-				<option>9</option>
-				<option>10</option>
-				<option>11</option>
-				<option>12</option>
-				<option>13</option>
-				<option>14</option>
-				<option>15</option>
-				<option>16</option>
-				<option>17</option>
-				<option>18</option>
-				<option>19</option>
-				<option>20</option>
-				<option>21</option>
-				<option>22</option>
-				<option>23</option>
-				<option>24</option>
-				<option>25</option>
-				<option>26</option>
-				<option>27</option>
-				<option>28</option>
-				<option>29</option>
-				<option>30</option>
-				<option>31</option>
-			</select>
-		</p>
 
-
-		<p class="form-group">
-			<label>What is your favorite color?</label>
-			<div class="col-2">
+			<p class="form-group d-block col-6 colorquestion">
+				<label>What is your favorite color?</label>
 				<input type="color" id="example-color-input">
-			</div>
-		</p>
-
+			</p>
+		</div>
 	</form>
 	<!-- End: Preferred Forms Formats-->
 </div>
