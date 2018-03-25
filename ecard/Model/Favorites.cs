@@ -44,8 +44,6 @@ namespace ecard.Model
 		public string holiday { get; set; }
 
 		[DisplayName("What is your favorite color?")]
-		[Display(Prompt = "Color")]
-		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
 		[Required(ErrorMessage = "Required")]
 		public string color { get; set; }
 
@@ -55,7 +53,17 @@ namespace ecard.Model
 		[Required(ErrorMessage = "Required")]
 		public string birthday { get; set; }
 
+		[DisplayName("What is your birthday?")]
+		[Display(Prompt = "Date / Month")]
+		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+		[Required(ErrorMessage = "Required")]
+		public string birthdaymonth { get; set; }
 
+		[DisplayName("Day?")]
+		[Display(Prompt = "Date / Month")]
+		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+		[Required(ErrorMessage = "Required")]
+		public string birthdayday { get; set; }
 
 
 		public string created { get; set; }

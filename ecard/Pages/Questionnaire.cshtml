@@ -67,7 +67,7 @@
 
 	<!-- Begin: Preferred Form Formats -->
 	<form>
-		<p>Select one or more El Segundo Restaurants you are interested in visiting:</p>
+		<label asp-for="@Model._myFavorites.restaurant"></label>
 		<div class="form-check form-check-inline">
 			<label class="form-check-label">
 				<input type="checkbox" class="form-check-input" value="">Rock & Brews
@@ -118,11 +118,12 @@
 				<input type="checkbox" class="form-check-input" value="">Beach Mex
 			</label>
 		</div>
+
 		<div class="row">
 			<p class="form-group col-6">
-				<label for="sel1">What is your favorite holiday?</label>
-				<select class="form-control" id="sel1">
-					<option class="invisible">Select One</option>
+				<label asp-for="@Model._myFavorites.holiday"></label>
+				<select asp-for="@Model._myFavorites.holiday" class="form-control">
+					<option value="" class="invisible">Select One</option>
 					<option>New Year's Eve</option>
 					<option>Valentine's Day</option>
 					<option>St. Patrick's Day</option>
@@ -136,9 +137,9 @@
 		</div>
 		<div class="row">
 			<p class="form-group col-6">
-				<label>When is your birthday?</label>
+				<label asp-for="@Model._myFavorites.birthdaymonth"></label>
 				<select id="month" name="month">
-					<option class="invisible"></option>
+					<option value="" class="disable">Month</option>
 					<option>January</option>
 					<option>February</option>
 					<option>March</option>
@@ -152,7 +153,7 @@
 					<option>November</option>
 					<option>December</option>
 				</select>
-				<label for="day">Day:</label>
+				<label asp-for="@Model._myFavorites.birthdayday"></label>
 				<select id="day" name="day">
 					<option class="invisible"></option>
 					<option>1</option>
@@ -189,10 +190,14 @@
 				</select>
 			</p>
 
+			@*<p class="form-group d-block col-6">
+					<label>What is your favorite color?</label>
+					<input type="color" id="example-color-input">
+				</p>*@
 
 			<p class="form-group d-block col-6">
-				<label>What is your favorite color?</label>
-				<input type="color" id="example-color-input">
+				<label asp-for="@Model._myFavorites.color"></label>
+				<input type="color" asp-for="@Model._myFavorites.color">
 			</p>
 		</div>
 	</form>
