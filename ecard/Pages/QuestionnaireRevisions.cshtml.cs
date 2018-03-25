@@ -11,14 +11,14 @@ using Newtonsoft.Json;
 
 namespace ecard.Pages
 {
-	public class QuestionnaireModel : PageModel
+	public class QuestionnaireRevisionsModel : PageModel
 	{
 
 		[BindProperty]
 		public Favorites _myFavorites { get; set; }
 		private DbBridge _myDbBridge { get; set; }
 		private IConfiguration _myConfiguration { get; set; }
-		public QuestionnaireModel(DbBridge DbBridge, IConfiguration Configuration)
+		public QuestionnaireRevisionsModel(DbBridge DbBridge, IConfiguration Configuration)
 		{
 			_myDbBridge = DbBridge;
 			_myConfiguration = Configuration;

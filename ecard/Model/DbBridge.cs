@@ -11,5 +11,7 @@ namespace ecard.Model
 		public DbBridge() { }
 		public DbBridge(DbContextOptions<DbBridge> options) : base(options) { }
 		public DbSet<Greetings> Greetings { get; set; }
+		public DbSet<Favorites> Favorites { get; set; }
+
 	}
 }
