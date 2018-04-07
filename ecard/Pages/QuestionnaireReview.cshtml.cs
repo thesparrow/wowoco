@@ -25,95 +25,35 @@ namespace ecard.Pages
 
 		}
 
-		public void OnGet() { }
-
-
-		[HttpPost]
-		public async Task<IActionResult> OnPost()
+		public void OnGet(int ID = 0)
 		{
-
-			if (await isValid())
+			if (ID > 0)
 			{
-				if (ModelState.IsValid)
-				{
-					try
-					{
-						// DB Related Customized values added with each record
-						_myFavorites.created = DateTime.Now.ToString();
-						_myFavorites.created_ip = this.HttpContext.Connection.RemoteIpAddress.ToString();
-
-
-						//Clean Data before insertion 
-						_myFavorites.sendername = _myFavorites.sendername.ToLowerInvariant();
-						_myFavorites.senderemail = _myFavorites.senderemail.ToLowerInvariant();
-						_myFavorites.movie = _myFavorites.movie.ToLowerInvariant();
-
-
-						// DB Related add record
-						_myDbBridge.Favorites.Add(_myFavorites);
-						_myDbBridge.SaveChanges();
-
-						//REDIRECT to the page with a new operator (name/value pair)
-						return RedirectToPage("Questionnaire", new { id = _myFavorites.ID });
-					}
-
-					catch (Exception ex)
-					{
-						Console.WriteLine(ex);
-						return RedirectToPage("Questionnaire");
-					}
-				}
+				_myFavorites = _myDbBridge.Favorites.Find(ID);
 			}
-			else
+		}
+
+
+		public IActionResult OnPost(int id = 0)
+		{
+			if (id > 0)
 			{
-				ModelState.AddModelError("_myFavorites.reCaptcha", "Please verify you're not a robot!");
+				_myFavorites = _myDbBridge.Favorites.Find(id);
+
+				try
+				{
+					return RedirectToPage("Questionnaire", new { id = _myFavorites.ID });
+				}
+
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex);
+					return RedirectToPage("Questionnaire");
+				}
 			}
 
 			return Page();
 
-		}
-
-		/**
-         * reCAPTHCA SERVER SIDE VALIDATION 
-         * 
-         *      Create an HttpClient and store the the secret/response pair
-         *      Await for the sever to return a json obect 
-         * */
-		private async Task<bool> isValid()
-		{
-			var response = this.HttpContext.Request.Form["g-recaptcha-response"];
-			if (string.IsNullOrEmpty(response))
-				return false;
-
-			try
-			{
-				using (var client = new HttpClient())
-				{
-					var values = new Dictionary<string, string>();
-					//values.Add("secret", "SECRET KEY");
-					values.Add("secret", _myConfiguration["ReCaptcha:PrivateKey"]);
-
-					values.Add("response", response);
-					//values.Add("remoteip", this.HttpContext.Connection.RemoteIpAddress.ToString()); 
-
-					var query = new FormUrlEncodedContent(values);
-
-					var post = client.PostAsync("https://www.google.com/recaptcha/api/siteverify", query);
-
-					var json = await post.Result.Content.ReadAsStringAsync();
-
-					if (json == null)
-						return false;
-
-					var results = JsonConvert.DeserializeObject<dynamic>(json);
-
-					return results.success;
-				}
-
-			}
-			catch { }
-
-			return false;
 		}
 
 	}

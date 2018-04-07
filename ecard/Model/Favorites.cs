@@ -26,45 +26,24 @@ namespace ecard.Model
 		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
 		public string movie { get; set; }
 
-		[DisplayName("What El Segundo Restaurants you are interested in visiting (list one or more)?")]
-		[Display(Prompt = "Rock & Brews, Sausal, etc.")]
-		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+		[DisplayName("What El Segundo Restaurant are you most interested in visiting?")]
 		[Required(ErrorMessage = "Required")]
 		public string restaurant { get; set; }
 
-		//[DisplayName("Select one or more of the El Segundo Restaurants you are interested in visiting")]
-		//[Value("Rock & Brews")]
-		//[Required(ErrorMessage = "Required")]
-		//public bool rocknbrew { get; set; }
-
 		[DisplayName("What is your favorite holiday?")]
-		[Display(Prompt = "Thanksgiving, National Donut Day, etc.")]
-		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
 		[Required(ErrorMessage = "Required")]
 		public string holiday { get; set; }
 
 		[DisplayName("What is your favorite color?")]
-		[Required(ErrorMessage = "Required")]
 		public string color { get; set; }
 
-		[DisplayName("What is your birthday?")]
-		[Display(Prompt = "Date / Month")]
-		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
-		[Required(ErrorMessage = "Required")]
-		public string birthday { get; set; }
-
-		[DisplayName("What is your birthday?")]
-		[Display(Prompt = "Date / Month")]
-		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+		[DisplayName("What month is your birthday?")]
 		[Required(ErrorMessage = "Required")]
 		public string birthdaymonth { get; set; }
 
 		[DisplayName("Day?")]
-		[Display(Prompt = "Date / Month")]
-		[StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
 		[Required(ErrorMessage = "Required")]
 		public string birthdayday { get; set; }
-
 
 		public string created { get; set; }
 

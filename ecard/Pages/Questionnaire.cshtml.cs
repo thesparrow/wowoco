@@ -54,7 +54,7 @@ namespace ecard.Pages
 						_myDbBridge.SaveChanges();
 
 						//REDIRECT to the page with a new operator (name/value pair)
-						return RedirectToPage("Questionnaire", new { id = _myFavorites.ID });
+						return RedirectToPage("QuestionnaireReview", new { id = _myFavorites.ID });
 					}
 
 					catch (Exception ex)
