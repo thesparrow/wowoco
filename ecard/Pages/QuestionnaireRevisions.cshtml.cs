@@ -25,8 +25,18 @@ namespace ecard.Pages
 
 		}
 
-		public void OnGet() { }
-
+		public IActionResult OnGet(int id = 0)
+		{
+			if (id > 0)
+			{
+				DbBridge = _myDbBridge.Favorites.Find(id);
+				return Page();
+			}
+			else
+			{
+				return RedirectToPage("Questionnaire");
+			}
+		}
 
 		[HttpPost]
 		public async Task<IActionResult> OnPost()
@@ -74,11 +84,11 @@ namespace ecard.Pages
 		}
 
 		/**
-         * reCAPTHCA SERVER SIDE VALIDATION 
-         * 
-         *      Create an HttpClient and store the the secret/response pair
-         *      Await for the sever to return a json obect 
-         * */
+		 * reCAPTHCA SERVER SIDE VALIDATION 
+		 * 
+		 *      Create an HttpClient and store the the secret/response pair
+		 *      Await for the sever to return a json obect 
+		 * */
 		private async Task<bool> isValid()
 		{
 			var response = this.HttpContext.Request.Form["g-recaptcha-response"];
