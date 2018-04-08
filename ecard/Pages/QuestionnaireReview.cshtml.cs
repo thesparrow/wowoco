@@ -42,7 +42,7 @@ namespace ecard.Pages
 
 				try
 				{
-					return RedirectToPage("Questionnaire", new { id = _myFavorites.ID });
+					return RedirectToPage("QuestionnaireRevisions", new { id = _myFavorites.ID });
 				}
 
 				catch (Exception ex)

@@ -29,7 +29,7 @@ namespace ecard.Pages
 		{
 			if (id > 0)
 			{
-				DbBridge = _myDbBridge.Favorites.Find(id);
+				_myFavorites = _myDbBridge.Favorites.Find(id);
 				return Page();
 			}
 			else
@@ -38,13 +38,13 @@ namespace ecard.Pages
 			}
 		}
 
-		[HttpPost]
-		public async Task<IActionResult> OnPost()
+
+		public string Message { get; set; }
+		public IActionResult OnPost()
 		{
 
-			if (await isValid())
+
 			{
-				if (ModelState.IsValid)
 				{
 					try
 					{
@@ -58,25 +58,19 @@ namespace ecard.Pages
 						_myFavorites.senderemail = _myFavorites.senderemail.ToLowerInvariant();
 						_myFavorites.movie = _myFavorites.movie.ToLowerInvariant();
 
-
-						// DB Related add record
-						_myDbBridge.Favorites.Add(_myFavorites);
+						// DB-RELATED: UPDATE RECORD ON THE DATABASE 
+						_myDbBridge.Favorites.Update(_myFavorites);
 						_myDbBridge.SaveChanges();
 
 						//REDIRECT to the page with a new operator (name/value pair)
-						return RedirectToPage("Questionnaire", new { id = _myFavorites.ID });
+						return RedirectToPage("QuestionnaireReview", new { id = _myFavorites.ID });
 					}
 
-					catch (Exception ex)
+					catch
 					{
-						Console.WriteLine(ex);
-						return RedirectToPage("Questionnaire");
+
 					}
 				}
-			}
-			else
-			{
-				ModelState.AddModelError("_myFavorites.reCaptcha", "Please verify you're not a robot!");
 			}
 
 			return Page();
