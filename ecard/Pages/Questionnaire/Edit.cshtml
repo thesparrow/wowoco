@@ -6,8 +6,6 @@
 	ViewBag.meta_desc = "";
 	ViewBag.theme = "questionnaire";
 
-
-
 	var checked_rockandbrews = "";
 	if (Model._myFavorites.restaurant.Contains("Rock and Brews"))
 	{
@@ -205,6 +203,7 @@
 					<input name="_myFavorites.restaurant_array" type="checkbox" value="Beach Mex">Beach Mex
 				</label>
 			</div>
+
 			<div class="form-group col-4">
 				<div class="g-recaptcha" data-sitekey="6LeM_i0UAAAAACyV8wOooe4mV3_XHbcl-hMjtnrM"></div>
 			</div>
@@ -224,7 +223,7 @@
 	<!-- BEGIN: TEXTAREA AUTOSIZE -->
 	<script src="~/lib/textarea-autosize/dist/jquery.textarea_autosize.js"></script>
 	<script>
-$('textarea').textareaAutoSize();
+		$('textarea').textareaAutoSize();
 	</script>
 	<!-- END: TEXTAREA AUTOSIZE -->
 

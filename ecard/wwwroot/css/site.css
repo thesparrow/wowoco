@@ -38,6 +38,13 @@ p {
 	margin-top: 2em;
 }
 
+h2 {
+	margin-top: 5em;
+	text-align: center;
+	font-family: 'Euphoria Script', cursive;
+	font-size: 2.75em;
+}
+
 .questionnaire2 .form-check-label {
 	margin-top: 1em;
 }
@@ -78,6 +85,7 @@ p {
 	text-transform: none;
 }
 
+
 .questionnaire2 h1.thankyou {
 	margin-top: 4em;
 }
@@ -85,15 +93,20 @@ p {
 
 
 .form-control::-webkit-input-placeholder {
-	color: red;
+	/*color: red;*/
+	color: #cbc6c6;
 	opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-	color: red;
+	/*color: red;*/
+	color: #cbc6c6;
 }
 
 
+.form-control:focus {
+	border: inset;
+}
 
 
 a {

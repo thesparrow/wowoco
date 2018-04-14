@@ -49,6 +49,12 @@ namespace ecard.Pages.Questionnaire
 						_myFavorites.movie = _myFavorites.movie.ToLowerInvariant();
 
 
+						//ADD RESTAURANT ENTRIES TO "restaurant" FIELD
+						if (_myFavorites.restaurant_array != null && _myFavorites.restaurant.Any())
+						{
+							_myFavorites.restaurant = string.Join(',', _myFavorites.restaurant_array);
+						}
+
 						// DB Related add record
 						_myDbBridge.Favorites.Add(_myFavorites);
 						_myDbBridge.SaveChanges();
