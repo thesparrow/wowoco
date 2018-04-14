@@ -9,42 +9,32 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
-namespace ecard.Pages
+namespace ecard.Pages.Questionnaire
 {
-	public class QuestionnaireRevisionsModel : PageModel
+	public class CompleteModel : PageModel
 	{
 
 		[BindProperty]
 		public Favorites _myFavorites { get; set; }
 		private DbBridge _myDbBridge { get; set; }
 		private IConfiguration _myConfiguration { get; set; }
-		public QuestionnaireRevisionsModel(DbBridge DbBridge, IConfiguration Configuration)
+		public CompleteModel(DbBridge DbBridge, IConfiguration Configuration)
 		{
 			_myDbBridge = DbBridge;
 			_myConfiguration = Configuration;
 
 		}
 
-		public IActionResult OnGet(int id = 0)
-		{
-			if (id > 0)
-			{
-				_myFavorites = _myDbBridge.Favorites.Find(id);
-				return Page();
-			}
-			else
-			{
-				return RedirectToPage("Questionnaire");
-			}
-		}
+		public void OnGet() { }
 
 
-		public string Message { get; set; }
-		public IActionResult OnPost()
+		[HttpPost]
+		public async Task<IActionResult> OnPost()
 		{
 
-
+			if (await isValid())
 			{
+				if (ModelState.IsValid)
 				{
 					try
 					{
@@ -59,25 +49,24 @@ namespace ecard.Pages
 						_myFavorites.movie = _myFavorites.movie.ToLowerInvariant();
 
 
-						//ADD RESTAURANT ENTRIES TO "restaurant" FIELD
-						if (_myFavorites.restaurant_array != null && _myFavorites.restaurant.Any())
-						{
-							_myFavorites.restaurant = string.Join(',', _myFavorites.restaurant_array);
-						}
-
-						// DB-RELATED: UPDATE RECORD ON THE DATABASE 
-						_myDbBridge.Favorites.Update(_myFavorites);
+						// DB Related add record
+						_myDbBridge.Favorites.Add(_myFavorites);
 						_myDbBridge.SaveChanges();
 
 						//REDIRECT to the page with a new operator (name/value pair)
-						return RedirectToPage("QuestionnaireReview", new { id = _myFavorites.ID });
+						return RedirectToPage("Index", new { id = _myFavorites.ID });
 					}
 
-					catch
+					catch (Exception ex)
 					{
-
+						Console.WriteLine(ex);
+						return RedirectToPage("Index");
 					}
 				}
+			}
+			else
+			{
+				ModelState.AddModelError("_myFavorites.reCaptcha", "Please verify you're not a robot!");
 			}
 
 			return Page();
@@ -85,11 +74,11 @@ namespace ecard.Pages
 		}
 
 		/**
-		 * reCAPTHCA SERVER SIDE VALIDATION 
-		 * 
-		 *      Create an HttpClient and store the the secret/response pair
-		 *      Await for the sever to return a json obect 
-		 * */
+         * reCAPTHCA SERVER SIDE VALIDATION 
+         * 
+         *      Create an HttpClient and store the the secret/response pair
+         *      Await for the sever to return a json obect 
+         * */
 		private async Task<bool> isValid()
 		{
 			var response = this.HttpContext.Request.Form["g-recaptcha-response"];

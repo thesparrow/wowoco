@@ -1,0 +1,78 @@
+﻿@page
+@model PreviewModel
+@{
+	ViewBag.meta_title = "QuestionnaireReview";
+	ViewBag.meta_keywords = "";
+	ViewBag.meta_desc = "";
+	ViewBag.theme = "questionnaire";
+}
+
+<div class="container questionnaire2">
+
+	<h1>
+		<i class="fa fa-music"></i>
+		Getting to Know You
+		<i class="fa fa-music"></i>
+	</h1>
+
+	<div class="row col-12">
+		<h5>Please review the below information for accuracy:</h5>
+	</div>
+
+	<div class="row">
+		<div class="form-group col-6">
+			<label asp-for="@Model._myFavorites.sendername"></label>
+			<span class="answer">@Html.Raw(Model._myFavorites.sendername)</span>
+		</div>
+		<div class="form-group col-6	">
+			<label asp-for="@Model._myFavorites.senderemail"></label>
+			<span class="answer2">@Html.Raw(Model._myFavorites.senderemail)</span>
+
+		</div>
+		<div class="form-group col-6">
+			<label asp-for="@Model._myFavorites.movie"></label>
+			<span class="answer">@Html.Raw(Model._myFavorites.movie)</span>
+
+		</div>
+		<div class="form-group col-6">
+			<label asp-for="@Model._myFavorites.holiday"></label>
+			<span class="answer">@Html.Raw(Model._myFavorites.holiday)</span>
+		</div>
+
+		<div class="form-group col-6">
+			<label asp-for="@Model._myFavorites.birthdaymonth"></label>
+			<span class="answer">
+				@Html.Raw(Model._myFavorites.birthdaymonth)
+			</span>
+			<label asp-for="@Model._myFavorites.birthdayday"></label>
+			<span class="answer">@Html.Raw(Model._myFavorites.birthdayday)</span>
+		</div>
+
+		<div class="form-group d-block col-6">
+			<label asp-for="@Model._myFavorites.color"></label>
+			<input class="answer" type="color" value="@Html.Raw(Model._myFavorites.color)" />
+		</div>
+
+		<div class="form-group col-12">
+			<label asp-for="@Model._myFavorites.restaurant"></label>
+			<span class="answer">@Html.Raw(Model._myFavorites.restaurant)</span>
+
+		</div>
+
+	</div>
+
+	<form method="post">
+
+		<div class="row">
+
+			<div class="form-group col-9">
+				<a href="/QuestionnaireRevisions?id=@Model._myFavorites.ID" class="btn btn-primary float-right">Revise</a>
+			</div>
+			<div class="form-group col-2">
+				<a href="/QuestionnaireThankyou?id=@Model._myFavorites.ID" class="btn btn-primary float-right">Submit</a>
+			</div>
+		</div>
+
+	</form>
+
+</div>

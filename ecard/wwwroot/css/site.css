@@ -57,7 +57,7 @@ p {
 .questionnaire2 input {
 	/*background: #f1eded;*/
 	border: none;
-	color: #383131
+	color: #383131;
 }
 
 .questionnaire2 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
@@ -81,6 +81,18 @@ p {
 .questionnaire2 h1.thankyou {
 	margin-top: 4em;
 }
+
+
+
+.form-control::-webkit-input-placeholder {
+	color: red;
+	opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+	color: red;
+}
+
 
 
 

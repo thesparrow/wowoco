@@ -9,16 +9,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
-namespace ecard.Pages
+namespace ecard.Pages.Questionnaire
 {
-	public class QuestionnaireRevisionsModel : PageModel
+	public class EditModel : PageModel
 	{
 
 		[BindProperty]
 		public Favorites _myFavorites { get; set; }
 		private DbBridge _myDbBridge { get; set; }
 		private IConfiguration _myConfiguration { get; set; }
-		public QuestionnaireRevisionsModel(DbBridge DbBridge, IConfiguration Configuration)
+		public EditModel(DbBridge DbBridge, IConfiguration Configuration)
 		{
 			_myDbBridge = DbBridge;
 			_myConfiguration = Configuration;
@@ -34,7 +34,7 @@ namespace ecard.Pages
 			}
 			else
 			{
-				return RedirectToPage("Questionnaire");
+				return RedirectToPage("Index");
 			}
 		}
 
@@ -70,7 +70,7 @@ namespace ecard.Pages
 						_myDbBridge.SaveChanges();
 
 						//REDIRECT to the page with a new operator (name/value pair)
-						return RedirectToPage("QuestionnaireReview", new { id = _myFavorites.ID });
+						return RedirectToPage("Preview", new { id = _myFavorites.ID });
 					}
 
 					catch
